@@ -4,23 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="JS/jquery-3.3.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="JS/temp_json.js"></script>
+	<!-- Missing add-on for angular being added -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
     <title>My Google Map</title>
 </head>
-<body>
+<body ng-app="myApp">
     <h1>First Google Map</h1>
-    <div ng-app="myApp" id="googleMap" style="width: 100%; height: 800px;" ></div>
+    <div ng-controller="map_box" id="googleMap" style="width: 100%; height: 800px;" ></div>
     <script>
-        function myMap() {
-            var mapProp = {
-                center: new google.maps.LatLng(45.497266, -73.579023),
-                zoom: 18,
-            };
-            var map=new google.maps.Map($("#googleMap")[0],mapProp);
-        }
     </script>
+	<script src="JS/map.js"></script>
+	<script src="JS/driver.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmeTQtfoKZcZLCBKytevgXUm5qwPOyGNM&callback=myMap"></script>
-
 </body>
 </html>
