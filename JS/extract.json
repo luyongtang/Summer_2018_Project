@@ -1,52 +1,91 @@
 {
-	"status":"OK",
-	"message":"none",
-	"city_area_name":"Greater Montreal",
-	"area_center_lat":45.476304,
-	"area_center_lng":-73.604807,
-	"code":1,
-	"last_updated":"07-02 19:10:12",
-	"fetched_stories":[{
-			"lat":45.781761, 
-			"lng":-74.002001,
-			"title":"Centre Sida-Amiti&Atilde;&copy;", 
-			"redirect":"https://www.cbc.ca/news/canada/montreal/hiv-testing-day-free-clinic-quebec-1.4723922?cmp=rss",
-			"source":"CBC News"
-		},
-		{
-			"lat":45.472882, 
-			"lng":-73.60177,
-			"title":"McGill University Health Centre- Emergency Care", 
-			"redirect":"https://montreal.ctvnews.ca/rogue-squirrel-causes-major-computer-network-outage-at-muhc-1.3990740",
-			"source":"CTV News"
-		},
-		{
-			"lat":45.473107, 
-			"lng":-73.600754,
-			"title":"McGill University Health Centre", 
-			"redirect":"https://www.cbc.ca/news/canada/montreal/squirrel-b…day-s-computer-meltdown-at-muhc-1.4725246?cmp=rss",
-			"source":"CBC News"
-		},
-		{
-			"lat":45.504318, 
-			"lng":-73.549567,
-			"title":"Old Port of Montreal", 
-			"redirect":"https://www.cbc.ca/news/canada/montreal/distracted-driving-laws-increeased-1.4723341?cmp=rss",
-			"source":"CBC News"
-		},
-		{
-			"lat":45.764965, 
-			"lng":-73.704534,
-			"title":"Rue Brodeur, Terrebonne", 
-			"redirect":"https://montreal.ctvnews.ca/car-connected-to-teen-s-slaying-in-terrebonne-found-1.3988939",
-			"source":"CTV News"
-		},
-		{
-			"lat":45.497266, 
-			"lng":-73.579023,
-			"title":"Concordia University", 
-			"redirect":"https://montreal.ctvnews.ca/concordia-s-response-t…-allegations-disappointed-victims-study-1.3990116",
-			"source":"CTV News"
-		}
-	]
+    "status": "OK",
+    "message": "none",
+    "city_area_name": "Greater Montreal",
+    "area_center_lat": 45.476304,
+    "area_center_lng": -73.604807,
+    "code": 1,
+    "last_updated": "2018-07-14 22:40:09",
+    "fetched_stories": [
+        {
+            "lat": "45.458655",
+            "lng": "-74.130449",
+            "title": "Attack on Hudson's Sandy Beach prompts indefinite ban on dogs",
+            "redirect": "https:\/\/montreal.ctvnews.ca\/attack-on-hudson-s-sandy-beach-prompts-indefinite-ban-on-dogs-1.4013529",
+            "source": "CTV News",
+            "date_and_time": "2018-07-14 18:29:00"
+        },
+        {
+            "lat": "45.515245",
+            "lng": "-73.583023",
+            "title": "A softball game at with a hard message: \"Save the North Field\"",
+            "redirect": "https:\/\/montreal.ctvnews.ca\/a-softball-game-at-with-a-hard-message-save-the-north-field-1.4013514",
+            "source": "CTV News",
+            "date_and_time": "2018-07-14 18:20:00"
+        },
+        {
+            "lat": "45.521900",
+            "lng": "-73.542106",
+            "title": "Road Reminder: Jacques Cartier bridge will close Saturday night for fireworks ",
+            "redirect": "https:\/\/montreal.ctvnews.ca\/road-reminder-jacques-cartier-bridge-will-close-saturday-night-for-fireworks-1.4013551",
+            "source": "CTV News",
+            "date_and_time": "2018-07-14 17:46:23"
+        },
+        {
+            "lat": "45.501978",
+            "lng": "-73.581170",
+            "title": "McGill's McIntyre medical building ravaged by four-alarm fire",
+            "redirect": "https:\/\/montreal.ctvnews.ca\/mcgill-s-mcintyre-medical-building-ravaged-by-four-alarm-fire-1.4013077",
+            "source": "CTV News",
+            "date_and_time": "2018-07-14 17:26:00"
+        },
+        {
+            "lat": "45.504785",
+            "lng": "-73.577151",
+            "title": "Secrets of Montreal's business district offered up in new McCord walking tour",
+            "redirect": "https:\/\/www.cbc.ca\/news\/canada\/montreal\/mccord-summer-tour-1.4745816?cmp=rss",
+            "source": "CBC News",
+            "date_and_time": "2018-07-14 16:00:00"
+        },
+        {
+            "lat": "45.506332",
+            "lng": "-73.569091",
+            "title": "Indigenous artists criticize Quebec director Robert Lepage over new show",
+            "redirect": "https:\/\/www.cbc.ca\/news\/canada\/montreal\/indigenous-artists-robert-lepage-kanata-1.4747228?cmp=rss",
+            "source": "CBC News",
+            "date_and_time": "2018-07-14 11:59:13"
+        },
+        {
+            "lat": "45.502340",
+            "lng": "-73.572353",
+            "title": "Place Montreal Trust open on Saturday, a day after five-alarm fire",
+            "redirect": "https:\/\/montreal.ctvnews.ca\/place-montreal-trust-open-on-saturday-a-day-after-five-alarm-fire-1.4012630",
+            "source": "CTV News",
+            "date_and_time": "2018-07-14 10:33:00"
+        },
+        {
+            "lat": "45.501978",
+            "lng": "-73.581170",
+            "title": "3-alarm fire sends smoke over McGill University ",
+            "redirect": "https:\/\/www.cbc.ca\/news\/canada\/montreal\/fire-sir-william-osler-way-docteur-penfield-avenue-1.4747067?cmp=rss",
+            "source": "CBC News",
+            "date_and_time": "2018-07-13 20:55:19"
+        },
+        {
+            "lat": "45.509581",
+            "lng": "-73.567860",
+            "title": "Red Roof mission fights to keep doors open amid cash crunch",
+            "redirect": "https:\/\/www.cbc.ca\/news\/canada\/montreal\/red-roof-cash-crunch-1.4746651?cmp=rss",
+            "source": "CBC News",
+            "date_and_time": "2018-07-13 18:20:15"
+        },
+        {
+            "lat": "45.502340",
+            "lng": "-73.572353",
+            "title": "Five-alarm fire at Place Montr\u00e9al Trust sends dense smoke over downtown Montreal",
+            "redirect": "https:\/\/www.cbc.ca\/news\/canada\/montreal\/fire-downtown-1.4746740?cmp=rss",
+            "source": "CBC News",
+            "date_and_time": "2018-07-13 17:42:47"
+        }
+    ]
 }
