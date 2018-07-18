@@ -16,3 +16,17 @@ app.controller("map_box",function($scope,$http){
 	*/
 })
 
+// Start of Testing
+var m1 = new GoogleMap ();
+m1.initWithoutID();
+console.log(m1.id);
+var m2 = new GoogleMap ();
+m2.initWithID('ABC');
+console.group("m2.id before setting:");
+console.log(m2.id);
+console.groupEnd("m2.id before setting:");
+m2.setMap('newID');
+console.group("m2.id after setting:");
+console.log(m2.id);
+console.groupEnd("m2.id after setting:");
+// End of Testing
