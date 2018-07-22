@@ -1,7 +1,7 @@
 //Correction to missing add-on
 var app = angular.module('myApp', ['ngRoute']);
 //use data_result as the result received from the server
-console.log(data_result);
+//console.log(data_result);
 app.controller("map_box",function($scope,$http){
 	/* To be used later on once the file is uploaded to server.
 	$http.post("JS/extract.json", JSON.stringify("{}")).then(
@@ -16,6 +16,8 @@ app.controller("map_box",function($scope,$http){
 	*/
 })
 
+
+/*
 // Start of Testing
 var m1 = new GoogleMap ();
 m1.initWithoutID();
@@ -30,3 +32,4 @@ console.group("m2.id after setting:");
 console.log(m2.id);
 console.groupEnd("m2.id after setting:");
 // End of Testing
+*/

@@ -5,87 +5,79 @@
     "area_center_lat": 45.476304,
     "area_center_lng": -73.604807,
     "code": 1,
-    "last_updated": "2018-07-14 22:40:09",
+    "last_updated": "2018-07-21 10:55:09",
     "fetched_stories": [
         {
-            "lat": "45.458655",
-            "lng": "-74.130449",
-            "title": "Attack on Hudson's Sandy Beach prompts indefinite ban on dogs",
-            "redirect": "https:\/\/montreal.ctvnews.ca\/attack-on-hudson-s-sandy-beach-prompts-indefinite-ban-on-dogs-1.4013529",
+            "lat": "45.507528",
+            "lng": "-73.558702",
+            "title": "Double stabbing near Chinatown, two arrested",
+            "location_name": "Boul St-Laurent & Avenue Viger O, Montr\u00e9al",
+            "redirect": "https:\/\/montreal.ctvnews.ca\/double-stabbing-near-chinatown-two-arrested-1.4022518",
             "source": "CTV News",
-            "date_and_time": "2018-07-14 18:29:00"
+            "date_and_time": "2018-07-21 09:02:00"
         },
         {
-            "lat": "45.515245",
-            "lng": "-73.583023",
-            "title": "A softball game at with a hard message: \"Save the North Field\"",
-            "redirect": "https:\/\/montreal.ctvnews.ca\/a-softball-game-at-with-a-hard-message-save-the-north-field-1.4013514",
+            "lat": "45.538878",
+            "lng": "-73.625698",
+            "title": "Canine safety 101: Kids in Montreal daycamps learning how to be safe around dogs",
+            "location_name": "Zooth\u00e9rapie Qu\u00e9bec",
+            "redirect": "https:\/\/www.cbc.ca\/news\/canada\/montreal\/zootherapie-quebec-dog-safety-workshops-1.4753918?cmp=rss",
+            "source": "CBC News",
+            "date_and_time": "2018-07-21 08:00:00"
+        },
+        {
+            "lat": "45.507528",
+            "lng": "-73.558702",
+            "title": "2 stabbed, 4 in custody after overnight altercation downtown",
+            "location_name": "Boul St-Laurent & Avenue Viger O, Montr\u00e9al",
+            "redirect": "https:\/\/www.cbc.ca\/news\/canada\/montreal\/st-laurent-overnight-stabbing-1.4756378?cmp=rss",
+            "source": "CBC News",
+            "date_and_time": "2018-07-21 07:15:20"
+        },
+        {
+            "lat": "45.507847",
+            "lng": "-73.560416",
+            "title": "Beijing Boom: Why Chinese tourists are visiting Montreal in record numbers ",
+            "location_name": "Place Sun-Yat-Sen",
+            "redirect": "https:\/\/www.cbc.ca\/news\/canada\/montreal\/china-tourism-montreal-1.4755742?cmp=rss",
+            "source": "CBC News",
+            "date_and_time": "2018-07-21 06:00:00"
+        },
+        {
+            "lat": "45.518147",
+            "lng": "-73.558550",
+            "title": "Woman's body found in fire on St-Timoth\u00e9e St. downtown",
+            "location_name": "Rue Amherst & Boulevard de Maisonneuve Est, Montr\u00e9al",
+            "redirect": "https:\/\/montreal.ctvnews.ca\/woman-s-body-found-in-fire-on-st-timoth%C3%A9e-st-downtown-1.4022403",
             "source": "CTV News",
-            "date_and_time": "2018-07-14 18:20:00"
+            "date_and_time": "2018-07-20 22:52:00"
         },
         {
-            "lat": "45.521900",
-            "lng": "-73.542106",
-            "title": "Road Reminder: Jacques Cartier bridge will close Saturday night for fireworks ",
-            "redirect": "https:\/\/montreal.ctvnews.ca\/road-reminder-jacques-cartier-bridge-will-close-saturday-night-for-fireworks-1.4013551",
+            "lat": "45.511596",
+            "lng": "-73.557887",
+            "title": "So you want to be a doctor? High schoolers get medical training at CHUM summer camp",
+            "location_name": "CHUM",
+            "redirect": "https:\/\/montreal.ctvnews.ca\/so-you-want-to-be-a-doctor-high-schoolers-get-medical-training-at-chum-summer-camp-1.4021675",
             "source": "CTV News",
-            "date_and_time": "2018-07-14 17:46:23"
+            "date_and_time": "2018-07-20 19:12:00"
         },
         {
-            "lat": "45.501978",
-            "lng": "-73.581170",
-            "title": "McGill's McIntyre medical building ravaged by four-alarm fire",
-            "redirect": "https:\/\/montreal.ctvnews.ca\/mcgill-s-mcintyre-medical-building-ravaged-by-four-alarm-fire-1.4013077",
+            "lat": "45.467941",
+            "lng": "-73.599579",
+            "title": "Prepare your hammocks: Quebec's construction holiday begins",
+            "location_name": "Turcot Interchange",
+            "redirect": "https:\/\/montreal.ctvnews.ca\/prepare-your-hammocks-quebec-s-construction-holiday-begins-1.4021538",
             "source": "CTV News",
-            "date_and_time": "2018-07-14 17:26:00"
+            "date_and_time": "2018-07-20 17:57:00"
         },
         {
-            "lat": "45.504785",
-            "lng": "-73.577151",
-            "title": "Secrets of Montreal's business district offered up in new McCord walking tour",
-            "redirect": "https:\/\/www.cbc.ca\/news\/canada\/montreal\/mccord-summer-tour-1.4745816?cmp=rss",
-            "source": "CBC News",
-            "date_and_time": "2018-07-14 16:00:00"
-        },
-        {
-            "lat": "45.506332",
-            "lng": "-73.569091",
-            "title": "Indigenous artists criticize Quebec director Robert Lepage over new show",
-            "redirect": "https:\/\/www.cbc.ca\/news\/canada\/montreal\/indigenous-artists-robert-lepage-kanata-1.4747228?cmp=rss",
-            "source": "CBC News",
-            "date_and_time": "2018-07-14 11:59:13"
-        },
-        {
-            "lat": "45.502340",
-            "lng": "-73.572353",
-            "title": "Place Montreal Trust open on Saturday, a day after five-alarm fire",
-            "redirect": "https:\/\/montreal.ctvnews.ca\/place-montreal-trust-open-on-saturday-a-day-after-five-alarm-fire-1.4012630",
+            "lat": "45.502398",
+            "lng": "-73.556186",
+            "title": "Jennifer Aniston enjoying Old Montreal",
+            "location_name": "Mandy's",
+            "redirect": "https:\/\/montreal.ctvnews.ca\/jennifer-aniston-enjoying-old-montreal-1.4021110",
             "source": "CTV News",
-            "date_and_time": "2018-07-14 10:33:00"
-        },
-        {
-            "lat": "45.501978",
-            "lng": "-73.581170",
-            "title": "3-alarm fire sends smoke over McGill University ",
-            "redirect": "https:\/\/www.cbc.ca\/news\/canada\/montreal\/fire-sir-william-osler-way-docteur-penfield-avenue-1.4747067?cmp=rss",
-            "source": "CBC News",
-            "date_and_time": "2018-07-13 20:55:19"
-        },
-        {
-            "lat": "45.509581",
-            "lng": "-73.567860",
-            "title": "Red Roof mission fights to keep doors open amid cash crunch",
-            "redirect": "https:\/\/www.cbc.ca\/news\/canada\/montreal\/red-roof-cash-crunch-1.4746651?cmp=rss",
-            "source": "CBC News",
-            "date_and_time": "2018-07-13 18:20:15"
-        },
-        {
-            "lat": "45.502340",
-            "lng": "-73.572353",
-            "title": "Five-alarm fire at Place Montr\u00e9al Trust sends dense smoke over downtown Montreal",
-            "redirect": "https:\/\/www.cbc.ca\/news\/canada\/montreal\/fire-downtown-1.4746740?cmp=rss",
-            "source": "CBC News",
-            "date_and_time": "2018-07-13 17:42:47"
+            "date_and_time": "2018-07-20 09:23:15"
         }
     ]
 }
