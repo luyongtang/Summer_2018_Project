@@ -53,12 +53,12 @@ function GoogleMap (mapId) {
 			var marker;
 			var i;
 			for(i=0; i<stories.length;i++){
-				myPosition = new google.maps.LatLng(stories[i].lat,stories[i].lng)
+				myPosition = new google.maps.LatLng(stories[i].lat,stories[i].lng);
 				myBounds.extend(myPosition);
 				marker = new google.maps.Marker({
 					position: myPosition,
 					map:this.map
-				})
+				});
 			}(marker,i)
 		}
 		else{
@@ -85,6 +85,7 @@ function GoogleMapAssit(stories){
 	this.formatDuplicates=function(){
 		var temp;
 		stories.forEach(function (story){
+			console.log('%o',story);
 			if(!exists(story.lat,story.lng)){
 				temp = {
 					lat:story.lat,
@@ -92,16 +93,16 @@ function GoogleMapAssit(stories){
 				};
 				result.push(temp);
 			}
-		})
+		});
 		//console.log(result);
 		return result;
 	};
 	function exists(lat,lng){
 		stories.forEach(function (story){
-			if(stories.lat == lat && story.lng == lng){
+			if(story.lat == lat && story.lng == lng){
 				return true;
 			}
 		})
-		return false
+		return false;
 	}
 }
