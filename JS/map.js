@@ -1,30 +1,59 @@
+var app = angular.module('myApp', ['ngRoute']);
+var data_result = {}; // the data received from the server
+
 function myMap() {
-	/*
-    var map = new google.maps.Map($("#googleMap")[0], mapProp);
-	*/
-	var a = new GoogleMap("googleMap");
+	
+	app.controller("map_box",function($scope,$http){
+		/* To be used later on once the file is uploaded to server.*/
+		$http.post("http://eaglepulse.com/a_construct/units/json_result_set/json_result_set.php", JSON.stringify({"code":1})).then(
+			function successCallback(response) {
+				//console.log(response);
+				data_result = response.data;
+				initialize(); // initialize the map with the data received
+			},
+			function errorCallBack(response) {
+				console.log("The connection is not successful!");
+			}
+		);
+		
+		
+	});
+	
+	
+}
+
+// To initialize the google map
+function initialize() {
+	var a = new GoogleMap("googleMap", data_result);	
 	var b = new GoogleMapAssit(data_result.fetched_stories);
 	var result = b.formatDuplicates();
-	console.log(result);
 	a.loadMap();
 	a.setMarkers(result);
 	a.fitBounds();
 }
 
 // To defined a new object called GoogleMap
-function GoogleMap (mapId) {
+function GoogleMap (mapId, fetched_data) {
     // Attribute
     this.mapId = "";
 	this.map;
 	var myBounds = new google.maps.LatLngBounds();
-	var mapProp = {
-        center: new google.maps.LatLng(45.497266, -73.579023),
-        zoom: 18,
-    };
 	//Constructor
 	if(mapId){
 		this.mapId=mapId;
 		console.log(this.mapId);
+	}
+
+	if (fetched_data && fetched_data.area_center_lat && fetched_data.area_center_lng) {
+		var mapProp = {
+			center: new google.maps.LatLng(fetched_data.area_center_lat, fetched_data.area_center_lng),
+			zoom: 18,
+		};
+	} else { // default center
+		var mapProp = {
+			center: new google.maps.LatLng(45.497266, -73.579023),
+			zoom: 18,
+		};
 	}
 	//Methods
 	// setter
@@ -48,6 +77,8 @@ function GoogleMap (mapId) {
 		}
 	}
 	this.setMarkers=function(stories){
+		console.log(stories);
+		
 		var myPosition; 
 		if(this.map){
 			var marker;
@@ -80,12 +111,13 @@ function GoogleMap (mapId) {
 	*/
 }
 function GoogleMapAssit(stories){
+	console.log(stories);
+	
 	this.stories=stories;
 	var result = [];
 	this.formatDuplicates=function(){
 		var temp;
 		stories.forEach(function (story){
-			console.log('%o',story);
 			if(!exists(story.lat,story.lng)){
 				temp = {
 					lat:story.lat,
