@@ -5,7 +5,7 @@ function myMap() {
 	
 	app.controller("map_box",function($scope,$http){
 		/* To be used later on once the file is uploaded to server.*/
-		$http.post("http://eaglepulse.com/a_construct/units/json_result_set/json_result_set.php", JSON.stringify({"code":1})).then(
+		$http.post("../json_result_set/json_result_set.php", JSON.stringify({"code":1})).then(
 			function successCallback(response) {
 				//console.log(response);
 				data_result = response.data;
