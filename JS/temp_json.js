@@ -1,4 +1,4 @@
-var data_result = {
+var data_result_mul = {
     "status": "OK",
     "message": "none",
     "city_area_name": "Greater Montreal",

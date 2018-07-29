@@ -2,12 +2,11 @@ var app = angular.module('myApp', ['ngRoute']);
 var data_result = {}; // the data received from the server
 
 function myMap() {
-	
 	app.controller("map_box",function($scope,$http){
 		/* To be used later on once the file is uploaded to server.*/
 		$http.post("../json_result_set/json_result_set.php", JSON.stringify({"code":1})).then(
 			function successCallback(response) {
-				//console.log(response);
+				console.log(response);
 				data_result = response.data;
 				initialize(); // initialize the map with the data received
 			},
@@ -18,15 +17,14 @@ function myMap() {
 		
 		
 	});
-	
-	
 }
 
 // To initialize the google map
 function initialize() {
-	var a = new GoogleMap("googleMap", data_result);	
-	var b = new GoogleMapAssit(data_result.fetched_stories);
+	var a = new GoogleMap("googleMap");	
+	var b = new GoogleMapAssit(data_result_mul.fetched_stories);
 	var result = b.formatDuplicates();
+	console.log(result);
 	a.loadMap();
 	a.setMarkers(result);
 	a.fitBounds();
@@ -38,29 +36,20 @@ function GoogleMap (mapId, fetched_data) {
     this.mapId = "";
 	this.map;
 	var myBounds = new google.maps.LatLngBounds();
+	// default center
+	var mapProp = {
+		center: new google.maps.LatLng(45.497266, -73.579023),
+		zoom: 11,
+	};
 	//Constructor
 	if(mapId){
 		this.mapId=mapId;
-		console.log(this.mapId);
-	}
-
-	if (fetched_data && fetched_data.area_center_lat && fetched_data.area_center_lng) {
-		var mapProp = {
-			center: new google.maps.LatLng(fetched_data.area_center_lat, fetched_data.area_center_lng),
-			zoom: 18,
-		};
-	} else { // default center
-		var mapProp = {
-			center: new google.maps.LatLng(45.497266, -73.579023),
-			zoom: 18,
-		};
 	}
 	//Methods
 	// setter
 	this.setMap = function(mapId){
 		if(mapId){
 			this.mapId=mapId;
-			console.log(this.mapId);
 		}
 		else{
 			this.mapId="";
@@ -76,9 +65,9 @@ function GoogleMap (mapId, fetched_data) {
 			console.log("GoogleMap Error: mapId is not set");
 		}
 	}
+	//SetMarkers
 	this.setMarkers=function(stories){
-		console.log(stories);
-		
+		//console.log(stories);
 		var myPosition; 
 		if(this.map){
 			var marker;
@@ -91,6 +80,18 @@ function GoogleMap (mapId, fetched_data) {
 					map:this.map
 				});
 			}(marker,i)
+		}
+		else{
+			console.log("GoogleMap Error: map has not been loaded");
+		}
+	}
+	//Set Center
+	this.setCenter = function(lat, lng){
+		if(this.map){
+			var myCenter = new google.maps.LatLng(lat, lng);
+
+			this.map.setCenter(myCenter);
+
 		}
 		else{
 			console.log("GoogleMap Error: map has not been loaded");
@@ -117,24 +118,35 @@ function GoogleMapAssit(stories){
 	var result = [];
 	this.formatDuplicates=function(){
 		var temp;
+		var obj;
 		stories.forEach(function (story){
-			if(!exists(story.lat,story.lng)){
+			index = exists(story.lat,story.lng);
+			if(index<0){
 				temp = {
 					lat:story.lat,
 					lng:story.lng,
+					stories:[]
 				};
+				delete story.lat;
+				delete story.lng;
+				temp.stories.push(story);
 				result.push(temp);
+			}
+			else{
+				delete story.lat;
+				delete story.lng;
+				result[index].stories.push(story);
 			}
 		});
 		//console.log(result);
 		return result;
 	};
 	function exists(lat,lng){
-		stories.forEach(function (story){
-			if(story.lat == lat && story.lng == lng){
-				return true;
+		for(var i=0; i<result.length;i++){
+			if(result[i].lat==lat && result[i].lng==lng){
+				return i;
 			}
-		})
-		return false;
+		}
+		return -1;
 	}
 }
