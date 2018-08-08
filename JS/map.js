@@ -26,7 +26,7 @@ function initialize() {
 	var result = b.formatDuplicates();
 	console.log(result);
 	a.loadMap();
-	a.setMarkers(result);
+	a.loadMarkers(result);
 	a.fitBounds();
 }
 
@@ -41,6 +41,7 @@ function GoogleMap (mapId, fetched_data) {
 		center: new google.maps.LatLng(45.497266, -73.579023),
 		zoom: 11,
 	};
+	this.markers=[];
 	//Constructor
 	if(mapId){
 		this.mapId=mapId;
@@ -66,7 +67,7 @@ function GoogleMap (mapId, fetched_data) {
 		}
 	}
 	//SetMarkers
-	this.setMarkers=function(stories){
+	this.loadMarkers=function(stories){
 		//console.log(stories);
 		var myPosition; 
 		if(this.map){
@@ -79,7 +80,9 @@ function GoogleMap (mapId, fetched_data) {
 					position: myPosition,
 					map:this.map
 				});
+				this.markers.push(marker);
 			}(marker,i)
+			console.log(this.markers);
 		}
 		else{
 			console.log("GoogleMap Error: map has not been loaded");
