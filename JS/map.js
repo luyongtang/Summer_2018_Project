@@ -18,23 +18,25 @@ function myMap() {
 		
 	});
 }
-
 // To initialize the google map
 function initialize() {
 	var a = new GoogleMap("googleMap");	
 	var b = new GoogleMapAssit(data_result_mul.fetched_stories);
 	var result = b.formatDuplicates();
+	console.log("To be used AAAAAAAAA");
 	console.log(result);
 	a.loadMap();
-	a.loadMarkers(result);
+	a.setStories(result);
+	a.loadMarkers();
+	a.loadInfoWindows();
 	a.fitBounds();
 }
-
 // To defined a new object called GoogleMap
 function GoogleMap (mapId, fetched_data) {
     // Attribute
     this.mapId = "";
 	this.map;
+	this.stories;
 	var myBounds = new google.maps.LatLngBounds();
 	// default center
 	var mapProp = {
@@ -42,6 +44,8 @@ function GoogleMap (mapId, fetched_data) {
 		zoom: 11,
 	};
 	this.markers=[];
+	//for some reason it is var
+	var infoWindows=[];
 	//Constructor
 	if(mapId){
 		this.mapId=mapId;
@@ -56,6 +60,9 @@ function GoogleMap (mapId, fetched_data) {
 			this.mapId="";
 		}
 	}
+	this.setStories = function(stories){
+		this.stories=stories;
+	}
 	//place map
 	this.loadMap=function(){
 		if(this.mapId){
@@ -67,14 +74,15 @@ function GoogleMap (mapId, fetched_data) {
 		}
 	}
 	//SetMarkers
-	this.loadMarkers=function(stories){
+	this.loadMarkers=function(){
 		//console.log(stories);
 		var myPosition; 
 		if(this.map){
 			var marker;
 			var i;
-			for(i=0; i<stories.length;i++){
-				myPosition = new google.maps.LatLng(stories[i].lat,stories[i].lng);
+			var infoWindow;
+			for(i=0; i<this.stories.length;i++){
+				myPosition = new google.maps.LatLng(this.stories[i].lat,this.stories[i].lng);
 				myBounds.extend(myPosition);
 				marker = new google.maps.Marker({
 					position: myPosition,
@@ -82,10 +90,39 @@ function GoogleMap (mapId, fetched_data) {
 				});
 				this.markers.push(marker);
 			}(marker,i)
+			
 			console.log(this.markers);
 		}
 		else{
 			console.log("GoogleMap Error: map has not been loaded");
+		}
+	}
+	this.loadInfoWindows = function(){
+		var infoWindow;
+		if(this.markers.length>0){
+			for(i=0; i<this.stories.length;i++){
+				infoWindow = new google.maps.InfoWindow({
+					content:"Yes"+i
+				});
+				infoWindows.push(infoWindow);
+				//closure property for multiple info window
+				google.maps.event.addListener(this.markers[i], 'click',(fun)(this.markers[i],infoWindow));
+			}(infoWindow)
+		}
+		else{
+			console.log("GoogleMap Warning: markers have not been loaded or no stories exists");
+		}
+		
+	}
+	function fun(marker,infoWindow){
+		return function(){
+			closeAllInfowWindow();
+			infoWindow.open(this.map,marker);
+		}
+	}
+	function closeAllInfowWindow(){
+		for(var i =0; i<infoWindows.length;i++){
+			infoWindows[i].close();
 		}
 	}
 	//Set Center
