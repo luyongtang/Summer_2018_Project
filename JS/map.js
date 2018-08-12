@@ -27,6 +27,7 @@ function initialize() {
 	console.log(result);
 	a.loadMap();
 	a.setStories(result);
+	a.setCustomMarkersPath('../../documentation/alphabet/','png'); // the path is temporary for testing
 	a.loadMarkers();
 	a.loadInfoWindows();
 	a.fitBounds();
@@ -37,6 +38,8 @@ function GoogleMap (mapId, fetched_data) {
     this.mapId = "";
 	this.map;
 	this.stories;
+	this.customMarkersPath; // the path to the images of markers
+	this.markerFileType; // the file type of the iamges of markers
 	var myBounds = new google.maps.LatLngBounds();
 	// default center
 	var mapProp = {
@@ -51,7 +54,7 @@ function GoogleMap (mapId, fetched_data) {
 		this.mapId=mapId;
 	}
 	//Methods
-	// setter
+	// setters
 	this.setMap = function(mapId){
 		if(mapId){
 			this.mapId=mapId;
@@ -63,6 +66,22 @@ function GoogleMap (mapId, fetched_data) {
 	this.setStories = function(stories){
 		this.stories=stories;
 	}
+ 
+	/**
+	 * @param  {} path directory to the icon images
+	 * @param  {} fileType the file type of the icon images
+	 */
+	this.setCustomMarkersPath = function (path,fileType) {
+		if (!path) {
+			console.log("No parameter \"path\"in function \"setCustomMarkersPath\"");
+		} else if (!fileType) {
+			console.log("No parameter \"fileType\"in function \"setCustomMarkersPath\"");
+		} else {
+			this.customMarkersPath = path;
+			this.markerFileType = fileType;
+		}
+	};
+
 	//place map
 	this.loadMap=function(){
 		if(this.mapId){
@@ -73,6 +92,8 @@ function GoogleMap (mapId, fetched_data) {
 			console.log("GoogleMap Error: mapId is not set");
 		}
 	}
+
+	
 	//SetMarkers
 	this.loadMarkers=function(){
 		//console.log(stories);
@@ -81,13 +102,21 @@ function GoogleMap (mapId, fetched_data) {
 			var marker;
 			var i;
 			var infoWindow;
-			for(i=0; i<this.stories.length;i++){
+			var iconPath;
+			var iconOrder = 0;
+			for(i=0; i<this.stories.length;i++, iconOrder++){
+				if (iconOrder > 25) {
+					iconOrder = 0; // if there are more than 26 markers, the icons will be duplicated (temporary solution)
+				}
+				iconPath = this.customMarkersPath+String.fromCharCode(65+iconOrder)+'s.'+this.markerFileType;				
 				myPosition = new google.maps.LatLng(this.stories[i].lat,this.stories[i].lng);
 				myBounds.extend(myPosition);
 				marker = new google.maps.Marker({
 					position: myPosition,
-					map:this.map
+					map:this.map,
+					icon: iconPath,
 				});
+
 				this.markers.push(marker);
 			}(marker,i)
 			
