@@ -27,7 +27,7 @@ function initialize() {
 	console.log(result);
 	a.loadMap();
 	a.setStories(result);
-	a.setCustomMarkersPath('../../documentation/alphabet/','png'); // the path is temporary for testing
+	a.setCustomMarkersPath('../../documentation/numeric/','png'); // the path is temporary for testing
 	a.loadMarkers();
 	a.loadInfoWindows();
 	a.fitBounds();
@@ -40,6 +40,7 @@ function GoogleMap (mapId, fetched_data) {
 	this.stories;
 	this.customMarkersPath; // the path to the images of markers
 	this.markerFileType; // the file type of the iamges of markers
+	this.iterationType; // there are two types of iteration for the markers: "alphabet" and "numeric"
 	var myBounds = new google.maps.LatLngBounds();
 	// default center
 	var mapProp = {
@@ -71,14 +72,20 @@ function GoogleMap (mapId, fetched_data) {
 	 * @param  {} path directory to the icon images
 	 * @param  {} fileType the file type of the icon images
 	 */
-	this.setCustomMarkersPath = function (path,fileType) {
+	this.setCustomMarkersPath = function (path, fileType, iterType) {
 		if (!path) {
 			console.log("No parameter \"path\"in function \"setCustomMarkersPath\"");
 		} else if (!fileType) {
 			console.log("No parameter \"fileType\"in function \"setCustomMarkersPath\"");
+		} else if (!iterType) {
+			this.customMarkersPath = path;
+			this.markerFileType = fileType;
+			this.iterationType = 'numeric'; // default option
+
 		} else {
 			this.customMarkersPath = path;
 			this.markerFileType = fileType;
+			this.iterationType = iterType;
 		}
 	};
 
@@ -108,7 +115,11 @@ function GoogleMap (mapId, fetched_data) {
 				if (iconOrder > 25) {
 					iconOrder = 0; // if there are more than 26 markers, the icons will be duplicated (temporary solution)
 				}
-				iconPath = this.customMarkersPath+String.fromCharCode(65+iconOrder)+'s.'+this.markerFileType;				
+				if (this.iterationType == 'numeric') {
+					iconPath = this.customMarkersPath+String(iconOrder+1)+'s.'+this.markerFileType;
+				} else {
+					iconPath = this.customMarkersPath+String.fromCharCode(65+iconOrder)+'s.'+this.markerFileType;
+				}				
 				myPosition = new google.maps.LatLng(this.stories[i].lat,this.stories[i].lng);
 				myBounds.extend(myPosition);
 				marker = new google.maps.Marker({
