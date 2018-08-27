@@ -31,6 +31,11 @@ function initialize() {
 	a.loadMarkers();
 	a.loadInfoWindows();
 	a.fitBounds();
+
+	// debugging for the single marker
+	a.setSingleMarkerPath('../../documentation/point.png');
+	a.createSingleMarker(45.494822, -73.651221);
+	a.addSingleMarkerContent('<h1>Hello Test</h1>');
 }
 // To defined a new object called GoogleMap
 function GoogleMap (mapId, fetched_data) {
@@ -101,11 +106,16 @@ function GoogleMap (mapId, fetched_data) {
 		this.singleMarkerIconPath = iconPath;
 	};
 
+	/**
+	 * Create a new single marker
+	 * @param  {number} lat The latitude of the newly created marker
+	 * @param  {number} lng The longitude of the newly created marker
+	 */
 	this.createSingleMarker = function (lat, lng) {
 		if (lat && lng) {
 			var markerPosition = new google.maps.LatLng(lat, lng);
 		} else {
-			console.log('no parameters in function \"createSingleMarker\"');
+			console.error('Missing parameters in function \"createSingleMarker\"');
 			return false;
 		}
 		if (this.setSingleMarkerPath) {
@@ -117,18 +127,39 @@ function GoogleMap (mapId, fetched_data) {
 			});
 			this.singleMarker = marker;
 		} else {
-			console.log('variable \'singleMarkerIconPath\' is not set!');
+			console.error('variable \'singleMarkerIconPath\' is not set!');
 			return false;
 		}		
-		
+	};
 
+	/**
+	 * Add a new info window for the new single marker
+	 * @param  {string} displayCode The content to be displayed in the info window 
+	 */
+	this.addSingleMarkerContent = function (displayCode) {
+		if (!displayCode) {
+			console.error('Missing parameter in function \"addSingleMarkerContent\"');
+		}
+		var infoWindow = new google.maps.InfoWindow({
+			content: displayCode
+		});
+		if (!this.map) {
+			console.error('Error: this.map is not set!');
+			return false;			
+		} else if (!this.singleMarker) {
+			console.error('Error: this.singleMarker is not set!');
+			return false;
+		}
+		google.maps.event.addListener(this.singleMarker, 'click',(fun)(this.singleMarker,infoWindow));
+		infoWindow.open(this.map, this.singleMarker);
+		this.fitBounds(); // re-adjust the bounds to include the new marker
 	};
 
 	//place map
 	this.loadMap=function(){
 		if(this.mapId){
 			myMap=$("#"+this.mapId)[0];
-			this.map = new google.maps.Map(myMap, mapProp)
+			this.map = new google.maps.Map(myMap, mapProp);
 		}
 		else{
 			console.log("GoogleMap Error: mapId is not set");
