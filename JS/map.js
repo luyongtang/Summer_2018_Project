@@ -41,6 +41,8 @@ function GoogleMap (mapId, fetched_data) {
 	this.customMarkersPath; // the path to the images of markers
 	this.markerFileType; // the file type of the iamges of markers
 	this.iterationType; // there are two types of iteration for the markers: "alphabet" and "numeric"
+	this.singleMarker;
+	this.singleMarkerIconPath;
 	var myBounds = new google.maps.LatLngBounds();
 	// default center
 	var mapProp = {
@@ -69,8 +71,10 @@ function GoogleMap (mapId, fetched_data) {
 	}
  
 	/**
-	 * @param  {} path directory to the icon images
-	 * @param  {} fileType the file type of the icon images
+	 * Configuration of the icons of custom markers
+	 * @param  {string} path Directory to the icon images
+	 * @param  {string} fileType The file type of the icon images
+	 * @param  {string} iterType Iteration type of the increament
 	 */
 	this.setCustomMarkersPath = function (path, fileType, iterType) {
 		if (!path) {
@@ -87,6 +91,37 @@ function GoogleMap (mapId, fetched_data) {
 			this.markerFileType = fileType;
 			this.iterationType = iterType;
 		}
+	};
+
+	/**
+	 * Configuration of the icons of single markers
+	 * @param  {string} iconPath Derectory to the icon image of single marker 
+	 */
+	this.setSingleMarkerPath = function (iconPath) {
+		this.singleMarkerIconPath = iconPath;
+	};
+
+	this.createSingleMarker = function (lat, lng) {
+		if (lat && lng) {
+			var markerPosition = new google.maps.LatLng(lat, lng);
+		} else {
+			console.log('no parameters in function \"createSingleMarker\"');
+			return false;
+		}
+		if (this.setSingleMarkerPath) {
+			myBounds.extend(markerPosition);
+			var marker = new google.maps.Marker({
+				position: markerPosition,
+				map: this.map,
+				icon: this.singleMarkerIconPath,
+			});
+			this.singleMarker = marker;
+		} else {
+			console.log('variable \'singleMarkerIconPath\' is not set!');
+			return false;
+		}		
+		
+
 	};
 
 	//place map
