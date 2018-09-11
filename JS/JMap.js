@@ -56,7 +56,7 @@ function JMap (mapId) {
 		}
 	}
 	/**
-	* Once the ID of DIV of other HTML tag is set, Google Map is loaded
+	* Once the ID of DIV of other HTML tag is set, Google Map can be loaded
 	*/
 	this.loadMap=function(){
 		if(this.mapId){
