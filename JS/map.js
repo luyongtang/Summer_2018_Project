@@ -18,7 +18,7 @@ function myMap() {
 // To initialize the google map
 function initialize() {
 	var myJMap = new JMap("googleMap");	
-	var dataAssist = new DataAssist(data_result_mul.fetched_stories);
+	var dataAssist = new StoryAssist(data_result_mul.fetched_stories);
 	var result = dataAssist.formatDuplicates();
 	myJMap.loadMap();
 	myJMap.setStories(result);
