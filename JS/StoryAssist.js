@@ -1,4 +1,4 @@
-function DataAssist(stories){
+function StoryAssist(stories){
 	console.log(stories);
 	
 	this.stories=stories;
